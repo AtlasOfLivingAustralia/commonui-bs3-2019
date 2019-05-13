@@ -1,0 +1,68 @@
+.ui-autocomplete div.space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ui-autocomplete div.flex-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ui-autocomplete .content-flex-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.ui-autocomplete .content-spacing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+    .ui-autocomplete .content-spacing{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .ui-autocomplete .profile-link {
+        margin-left: 10px;
+    }
+
+    .ui-autocomplete .content-flex-end {
+        justify-content: flex-start;
+    }
+}
+
+
+.ui-autocomplete div.profile-info {
+    min-width: 200px;
+    width: 100%
+}
+
+.ui-autocomplete .ui-menu-item-wrapper {
+    padding: 5px;
+}
+
+ul.ui-autocomplete li.striped:nth-of-type(even) {
+    background-color: #f7f7f7;
+}
+
+.ui-autocomplete .legend{
+    color: #17a2b8;
+}
+
+
+.ui-autocomplete .ui-state-active {
+    background-color: #f2f2f2;
+    color: #212121;
+    border: 1px solid #f2f2f2;
+}
+
+.display-block {
+    display: block;
+}
