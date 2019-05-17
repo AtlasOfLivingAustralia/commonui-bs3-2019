@@ -1,0 +1,138 @@
+$gray-base:              #000 !default;
+$gray-darker:            #212121 !default;
+$gray-dark:              #343a40 !default;
+$gray:                   #6c757d !default;
+$gray-light:             #ced4da !default;
+$gray-lighter:           #f2f2f2 !default;
+
+$brand-primary:         #f26649 !default;
+$brand-success:         #28a745 !default;
+$brand-info:            #17a2b8 !default;
+$brand-warning:         #ffc107 !default;
+$brand-danger:          #dc3545 !default;
+$brand-default:         #637073 !default;
+
+$yiq-contrasted-threshold:  150 !default;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               #fff !default;
+//** Global text color on `<body>`.
+$text-color:            $gray-darker !default;
+
+//** Global textual link color.
+$link-color:            $brand-primary !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif:  'Roboto', sans-serif;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+$btn-default-color:              #fff !default;
+$btn-default-bg:                 $brand-default !default;
+$btn-default-border:             $brand-default !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             $brand-primary !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             $brand-success !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                $btn-info-bg !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             $btn-warning-bg !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              $btn-danger-bg !default;
+
+$btn-link-disabled-color:        $gray-light !default;
+
+
+//== Forms
+//
+//##
+
+//** `<input>` background color
+$input-bg:                       #fff !default;
+//** `<input disabled>` background color
+$input-bg-disabled:              $gray-lighter !default;
+
+//** Text color for `<input>`s
+$input-color:                    $gray-darker !default;
+//** `<input>` border color
+$input-border:                   $gray-light !default;
+
+//** Border color for inputs on focus
+$input-border-focus:             lighten($brand-primary, 25%) !default;
+
+//** Placeholder text color
+$input-color-placeholder:        $gray-light !default;
+
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+//** Divider color for between dropdown items.
+$dropdown-divider-bg:            $gray-light !default;
+
+//** Dropdown link text color.
+$dropdown-link-color:            $gray-dark !default;
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg:         $gray-lighter !default;
+
+$grid-float-breakpoint: 992px !default;
+
+// Font
+$icon-font-path: "../font/";
+$fa-font-path: "../font/";
+@import url(https://fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C400i%2C500%2C700%2C900&ver=5.0.3);
+@import "./ala-wordpress-2019/web/app/themes/understrap/sass/assets/font-awesome.scss";
+
+@import "./bootstrap-sass/assets/stylesheets/bootstrap";
+@import "./backport/stylesheets/bootstrap4/variables";
+/*! bs4
+ */
+@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/functions";
+@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/mixins";
+@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/mixins";
+//@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/variables";
+//@import "./ala-wordpress-2019/web/app/themes/pvtl/sass/mixins/breakpoints";
+@import "./ala-wordpress-2019/web/app/themes/pvtl/sass/theme/child_theme_variables";
+@import "./backport/stylesheets/bootstrap4/base";
+@import "./backport/stylesheets/bootstrap4/breakpoints";
+#wrapper-navbar>nav, footer, .ui-autocomplete, .ui-autocomplete .ui-state-active {
+  @import "./backport/stylesheets/bootstrap4/buttons";
+}
+@import "./ala-wordpress-2019/web/app/themes/pvtl/sass/theme/child_theme";
+//@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/navbar";
+//@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/utilities/spacing";
+
+#wrapper-navbar {
+  @import "./ala-wordpress-2019/web/app/themes/pvtl/sass/theme/partials/header";
+}
+
+footer {
+  @import "./ala-wordpress-2019/web/app/themes/pvtl/sass/theme/partials/footer";
+}

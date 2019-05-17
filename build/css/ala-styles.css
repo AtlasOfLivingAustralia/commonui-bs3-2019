@@ -1,0 +1,27 @@
+/*! ALA custom style rules
+================================= */
+
+/* Global
+================================= */
+#main{padding-top: 30px; padding-bottom: 5em; }
+body.background-white {background-color:#fff;}
+body.background-lightgrey {background-color:#f2f2f2;}
+
+/* Columns
+================================= */
+.no-gutter>[class*='col-']{padding-right:0;padding-left:0;}
+.col-centered{float:none;margin:0 auto;}
+
+/* Breadcrumb
+================================= */
+section#breadcrumb {padding: 12px 0 15px 19px;border-bottom: 1px solid #E7E7E7;background-color: #E7E7E7;}
+section#breadcrumb li + li::before{  font-family: 'Glyphicons Halflings';content: "\e258";margin: 0 .6em;vertical-align: text-bottom;opacity: .3;}
+.breadcrumb-list {list-style: none;margin: 0 0 0 35px;padding: 0;}
+.breadcrumb-list li {display: inline-block; line-height: normal}
+.breadcrumb-list li .glyphicon {margin-right: 5px;color: #bbb;}
+#ala-body .breadcrumb-list li .glyphicon {display: none;}
+
+
+/* table of contents floating div */
+.toc-floating-menu.affix {position: static;}
+.sidebar-col {margin-bottom: 20px;position:relative !important;}
