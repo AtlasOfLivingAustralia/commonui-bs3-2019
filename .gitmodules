@@ -1,6 +1,6 @@
 [submodule "bootstrap-sass"]
 	path = bootstrap-sass
-	url = https://github.com/twbs/bootstrap-sass.git
+	url = https://github.com/AtlasOfLivingAustralia/bootstrap-sass.git
 [submodule "ala-wordpress-2019"]
 	path = ala-wordpress-2019
 	url = https://github.com/AtlasOfLivingAustralia/ala-wordpress-2019.git

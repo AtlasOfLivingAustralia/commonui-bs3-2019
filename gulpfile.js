@@ -14,11 +14,11 @@ var paths = {
     styles: {
         src: '**/*.scss',
         dest: 'build/css/',
-        filename: 'bootstrap-fontawesome.css',
+        filename: 'ala-bootstrap-fontawesome.css',
         scssfile: 'backport/stylesheets/theme-overrides.scss'
     },
     dependencycss: {
-        src: [ 'assets/css/jquery-ui.css', 'assets/css/ala-styles.css', 'assets/css/jquery-ui-extra.css', 'assets/css/*.css'],
+        src: [ 'assets/vendor/jquery-ui/jquery-ui.css', 'assets/css/jquery-ui-extra.css', 'assets/css/ala-styles.css', 'assets/css/*.css'],
         dest: 'build/css/'
     },
     dependencyjs: {
@@ -34,8 +34,12 @@ var paths = {
         dest: 'build/font/'
     },
     js: {
-        src: ['assets/js/jquery-2.2.4.js', 'assets/js/bootstrap.js', 'assets/js/application.js', 'assets/js/*.js'],
-        dest: 'build/js/'
+        src: [
+            'assets/vendor/bootstrap/bootstrap.js', 'assets/vendor/jquery-ui/jquery-ui.js',
+            'assets/js/application.js', 'assets/js/*.js'
+        ],
+        dest: 'build/js/',
+        jquery: 'assets/vendor/jquery/jquery-3.4.1.js'
     }
 };
 
@@ -76,7 +80,9 @@ function font() {
 }
 
 function js() {
-    return src(paths.js.src)
+    return src(paths.js.jquery)
+        .pipe(rename('jquery.js'))
+        .pipe(src(paths.js.src))
         .pipe(dest(paths.js.dest))
         .pipe(concat('ala.min.js'))
         .pipe(uglify({output: {comments: '/^!/'}}))
