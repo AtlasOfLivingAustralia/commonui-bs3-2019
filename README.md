@@ -5,9 +5,23 @@ ALA header, footer, theme and javascript files required for 2019 website refresh
 
 ### Repository cloning
 This repository contains a couple of git submodules. Therefore, there is a bit more work that just cloning repo from 
-github. Make sure you clone the repository with the following command.
+github. Run the following commands.
  
 `git clone --recurse-submodules https://github.com/AtlasOfLivingAustralia/commonui-bs3-2019.git`
+
+`cd commonui-bs3-2019`
+
+`git submodule foreach --recursive 'git checkout commonui-bs3-2019'`
+
+_Above command will checkout the correct branch of submodule._
+
+### Working with submodule
+Make sure the changes to submodule is made on `commonui-bs3-2019` branch. Then publish those changes to github 
+using `git push`. In order for others to checkout your change, run the following command on the root repository - `commonui-bs3-2019`.
+
+`git add bootstrap-sass`
+
+`git add ala-wordpress-2019` 
 
 ### Installing dependencies
 Install dependencies using yarn.
