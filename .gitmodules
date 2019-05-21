@@ -1,6 +1,8 @@
 [submodule "bootstrap-sass"]
 	path = bootstrap-sass
 	url = https://github.com/AtlasOfLivingAustralia/bootstrap-sass.git
+	branch = commonui-bs3-2019
 [submodule "ala-wordpress-2019"]
 	path = ala-wordpress-2019
 	url = https://github.com/AtlasOfLivingAustralia/ala-wordpress-2019.git
+	branch = commonui-bs3-2019
