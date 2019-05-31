@@ -4,7 +4,7 @@ ALA header, footer, theme and javascript files required for 2019 website refresh
 ## Setting up development environment
 
 ### Repository cloning
-This repository contains a couple of git submodules. Therefore, there is a bit more work that just cloning repo from 
+This repository contains a couple of git submodules. Therefore, there is a bit more work than just cloning repo from 
 github. Run the following commands.
  
 `git clone --recurse-submodules https://github.com/AtlasOfLivingAustralia/commonui-bs3-2019.git`
