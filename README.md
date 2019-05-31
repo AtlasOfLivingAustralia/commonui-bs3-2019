@@ -16,7 +16,7 @@ github. Run the following commands.
 _Above command will checkout the correct branch of submodule._
 
 ### Working with submodule
-Make sure the changes to submodule is made on `commonui-bs3-2019` branch. Then publish those changes to github 
+Make sure changes submodules are made on `commonui-bs3-2019` branch. Then publish those changes to github 
 using `git push`. In order for others to checkout your change, run the following command on the root repository - `commonui-bs3-2019`.
 
 `git add bootstrap-sass`
