@@ -35,7 +35,7 @@ var paths = {
     },
     js: {
         src: [
-            'assets/vendor/bootstrap/bootstrap.js', 'assets/vendor/jquery-ui/jquery-ui.js',
+            'assets/vendor/jquery/jquery-migrate-3.0.1.js', 'assets/vendor/bootstrap/bootstrap.js', 'assets/vendor/jquery-ui/jquery-ui.js',
             'assets/js/application.js', 'assets/js/*.js'
         ],
         dest: 'build/js/',
@@ -93,7 +93,7 @@ function watch() {
     gulp.watch(paths.html.src, testHTMLPage);
     gulp.watch(paths.html.src, html);
     gulp.watch(paths.styles.src, css);
-    gulp.watch(paths.dependencycss.src, dependencyCSS);
+    gulp.watch(paths.dependencycss.src, css);
 }
 
 function clean() {

@@ -45,9 +45,6 @@ The built in server will do it. The address is `http://localhost:8099`.
 
 Example usage - `http://localhost:8099/css/jquery-ui.css`
 
-**Note:** Due to CORS policy on browsers, getting font files might fail. Updating CORS header on `server.js` will fix this
-problem.
-
 ### Test page
 The project has a test page to visualise changes. Use the following link.
 

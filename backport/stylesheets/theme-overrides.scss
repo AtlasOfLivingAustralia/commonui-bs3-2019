@@ -10,7 +10,7 @@ $brand-success:         #28a745 !default;
 $brand-info:            #17a2b8 !default;
 $brand-warning:         #ffc107 !default;
 $brand-danger:          #dc3545 !default;
-$brand-default:         #637073 !default;
+$brand-default:         #fff !default;
 
 $yiq-contrasted-threshold:  150 !default;
 
@@ -43,9 +43,9 @@ $font-family-monospace:   SFMono-Regular, Menlo, Monaco, Consolas, "Liberation M
 //== Buttons
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
-$btn-default-color:              #fff !default;
+$btn-default-color:              #000 !default;
 $btn-default-bg:                 $brand-default !default;
-$btn-default-border:             $brand-default !default;
+$btn-default-border:             #000 !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;

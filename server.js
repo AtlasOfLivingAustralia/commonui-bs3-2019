@@ -1,6 +1,6 @@
 var static = require('node-static'),
     http = require('http'),
-    addressCORS = "http://devt.ala.org.au:8081",
+    addressCORS = "*",
     port = 8099;
 
 /**
