@@ -104,6 +104,34 @@ $dropdown-link-hover-bg:         $gray-lighter !default;
 
 $grid-float-breakpoint: 992px !default;
 
+//** Border color for table and cell borders.
+$table-border-color:            #999 !default;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           #999 !default;
+$navbar-default-toggle-border-color:       #999 !default;
+
+//== Tabs
+$nav-tabs-border-color:                     #999 !default;
+$nav-tabs-active-link-hover-border-color:   #999 !default;
+$nav-tabs-justified-link-border-color:            #999 !default;
+
+
+//== Pagination
+$pagination-border:                    #999 !default;
+$pagination-hover-border:              #999 !default;
+$pagination-disabled-border:           #999 !default;
+
+//== List group
+//** `.list-group-item` border color
+$list-group-border:             #999 !default;
+
+//== Panels
+$panel-inner-border:          #999 !default;
+$panel-default-border:        #999 !default;
+$thumbnail-border:            #999 !default;
+
+
 // Font
 $icon-font-path: "../font/";
 $fa-font-path: "../font/";
