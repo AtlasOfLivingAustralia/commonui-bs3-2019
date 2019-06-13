@@ -82,7 +82,7 @@ $input-bg-disabled:              $gray-lighter !default;
 //** Text color for `<input>`s
 $input-color:                    $gray-darker !default;
 //** `<input>` border color
-$input-border:                   $gray-light !default;
+$input-border:                   #999 !default;
 
 //** Border color for inputs on focus
 $input-border-focus:             lighten($brand-primary, 25%) !default;
@@ -94,6 +94,8 @@ $input-color-placeholder:        $gray-light !default;
 //== Dropdowns
 //
 //## Dropdown menu container and contents.
+$dropdown-font-size: 14px;
+
 //** Divider color for between dropdown items.
 $dropdown-divider-bg:            $gray-light !default;
 

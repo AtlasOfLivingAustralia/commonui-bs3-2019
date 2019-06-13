@@ -94,6 +94,7 @@ function watch() {
     gulp.watch(paths.html.src, html);
     gulp.watch(paths.styles.src, css);
     gulp.watch(paths.dependencycss.src, css);
+    gulp.watch(paths.js.src, js);
 }
 
 function clean() {

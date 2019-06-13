@@ -52,12 +52,12 @@
  *
  * Created by Temi on 2019-05-07.
  */
-window.uiOptions = window.uiOptions || {};
+window.BC_CONF = window.BC_CONF || {};
 jQuery(function () {
-    var autoCompleteSelector = uiOptions.autoCompleteSelector || "#autocompleteHeader",
-        appendToSelector = uiOptions.appendToSelector || "#autocompleteSearchALA",
-        bieURL = uiOptions.bieURL || "https://bie-ws.ala.org.au/ws/search/auto.json",
-        templateId =  uiOptions.templateId || "autoCompleteTemplate";
+    var autoCompleteSelector = BC_CONF.autoCompleteSelector || "#autocompleteHeader",
+        appendToSelector = BC_CONF.appendToSelector || "#autocompleteSearchALA",
+        bieURL = BC_CONF.autocompleteHints || "https://bie-ws.ala.org.au/ws/search/auto.json",
+        templateId =  BC_CONF.templateId || "autoCompleteTemplate";
 
     var instance = $.ui.autocomplete({
         appendTo: appendToSelector,
