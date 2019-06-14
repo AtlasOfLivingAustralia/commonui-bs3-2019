@@ -146,9 +146,6 @@ $fa-font-path: "../font/";
  */
 @import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/functions";
 @import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/mixins";
-@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/mixins";
-//@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/variables";
-//@import "./ala-wordpress-2019/web/app/themes/pvtl/sass/mixins/breakpoints";
 @import "./ala-wordpress-2019/web/app/themes/pvtl/sass/theme/child_theme_variables";
 @import "./backport/stylesheets/bootstrap4/base";
 @import "./backport/stylesheets/bootstrap4/breakpoints";
@@ -156,8 +153,6 @@ $fa-font-path: "../font/";
   @import "./backport/stylesheets/bootstrap4/buttons";
 }
 @import "./ala-wordpress-2019/web/app/themes/pvtl/sass/theme/child_theme";
-//@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/navbar";
-//@import "./ala-wordpress-2019/web/app/themes/pvtl/src/sass/bootstrap4/utilities/spacing";
 
 #wrapper-navbar {
   @import "./ala-wordpress-2019/web/app/themes/pvtl/sass/theme/partials/header";

@@ -45,7 +45,7 @@ var paths = {
 
 function css() {
     return src(paths.styles.scssfile)
-        .pipe(gulpSass())
+        .pipe(gulpSass({precision: 9}))
         .pipe(rename(paths.styles.filename))
         .pipe(dest(paths.styles.dest))
         .pipe(src(paths.dependencycss.src))
