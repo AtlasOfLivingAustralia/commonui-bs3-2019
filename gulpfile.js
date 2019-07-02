@@ -3,7 +3,6 @@ var gulp = require('gulp'),
     csso = require('gulp-csso'),
     rename = require('gulp-rename'),
     replace = require('gulp-replace'),
-    concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     fs = require('fs'),
     del = require('del');
@@ -12,13 +11,14 @@ const {src, dest} = gulp;
 
 var paths = {
     styles: {
+        boostrap: 'assets/scss/bootstrap.scss',
+        'boostrap-ala': 'assets/scss/bootstrap-ala.scss',
+        'font-awesome': 'assets/scss/font-awesome.scss',
         src: '**/*.scss',
-        dest: 'build/css/',
-        filename: 'ala-bootstrap-fontawesome.css',
-        scssfile: 'backport/stylesheets/theme-overrides.scss'
+        dest: 'build/css/'
     },
     dependencycss: {
-        src: [ 'assets/vendor/jquery-ui/jquery-ui.css', 'assets/css/jquery-ui-extra.css', 'assets/css/ala-styles.css', 'assets/css/*.css'],
+        src: [ 'assets/vendor/jquery-ui/autocomplete.css', 'assets/css/autocomplete-extra.css', 'assets/css/ala-styles.css', 'assets/css/*.css'],
         dest: 'build/css/'
     },
     dependencyjs: {
@@ -26,34 +26,81 @@ var paths = {
         dest: 'build/js/'
     },
     html: {
-        src: '*.html',
-        dest: 'build/html/'
+        src: ['banner.html', 'footer.html', 'head.html'],
+        dest: 'build/'
     },
     font: {
         src: ['bootstrap-sass/assets/fonts/bootstrap/*.*', 'ala-wordpress-2019/web/app/themes/understrap/fonts/*'],
-        dest: 'build/font/'
+        dest: 'build/fonts/'
     },
     js: {
         src: [
-            'assets/vendor/jquery/jquery-migrate-3.0.1.js', 'assets/vendor/bootstrap/bootstrap.js', 'assets/vendor/jquery-ui/jquery-ui.js',
+
             'assets/js/application.js', 'assets/js/*.js'
         ],
         dest: 'build/js/',
-        jquery: 'assets/vendor/jquery/jquery-3.4.1.js'
+        jquery: 'assets/vendor/jquery/jquery-3.4.1.js',
+        'jquery-migration': 'assets/vendor/jquery/jquery-migrate-3.0.1.js',
+        bootstrap: 'assets/vendor/bootstrap/bootstrap.js',
+        jqueryui: 'assets/vendor/jquery-ui/autocomplete.js'
     }
-};
+},
+    /**
+     * Possible values
+     * 'ala'
+     * 'living-atlas'
+     * @type {string}
+     */
+    output = 'ala';
 
-function css() {
-    return src(paths.styles.scssfile)
+/**
+ * Bootstrap output is dependent on value of @link{output} variable.
+ * If 'ala' is chosen, bootstrap.css will have custom ala styles.
+ * If 'living-atlas' is chosen, bootstrap.css will be standard bootstrap styling.
+ * @returns {stream}
+ */
+function bootstrapCSS() {
+    switch (output) {
+        case 'ala':
+            return src(paths.styles["boostrap-ala"])
+            .pipe(gulpSass({precision: 9}))
+            .pipe(rename('bootstrap.css'))
+            .pipe(dest(paths.styles.dest))
+            .pipe(csso({restructure: false}))
+            .pipe(rename('bootstrap.min.css'))
+            .pipe(dest(paths.styles.dest));
+        case 'living-atlas':
+            return src(paths.styles.boostrap)
+                .pipe(gulpSass({precision: 9}))
+                .pipe(rename('bootstrap.css'))
+                .pipe(dest(paths.styles.dest))
+                .pipe(csso({restructure: false}))
+                .pipe(rename('bootstrap.min.css'))
+                .pipe(dest(paths.styles.dest));
+
+
+    }
+}
+
+function fontawesome() {
+    return src(paths.styles["font-awesome"])
         .pipe(gulpSass({precision: 9}))
-        .pipe(rename(paths.styles.filename))
+        .pipe(rename('font-awesome.css'))
         .pipe(dest(paths.styles.dest))
-        .pipe(src(paths.dependencycss.src))
-        .pipe(dest(paths.dependencycss.dest))
-        .pipe(concat('ala.min.css'))
         .pipe(csso({restructure: false}))
+        .pipe(rename('font-awesome.min.css'))
+        .pipe(dest(paths.styles.dest));
+}
+
+function otherCSSFiles() {
+        return src(paths.dependencycss.src)
+        .pipe(dest(paths.dependencycss.dest))
+        .pipe(csso({restructure: false}))
+        .pipe(rename({extname: '.min.css'}))
         .pipe(dest(paths.dependencycss.dest));
-};
+}
+
+var css = gulp.parallel(bootstrapCSS, fontawesome, otherCSSFiles);
 
 function testHTMLPage() {
     var header = fs.readFileSync('banner.html');
@@ -79,15 +126,52 @@ function font() {
         .pipe(dest(paths.font.dest));
 }
 
-function js() {
+function jQuery() {
     return src(paths.js.jquery)
         .pipe(rename('jquery.js'))
-        .pipe(src(paths.js.src))
         .pipe(dest(paths.js.dest))
-        .pipe(concat('ala.min.js'))
         .pipe(uglify({output: {comments: '/^!/'}}))
+        .pipe(rename('jquery.min.js'))
         .pipe(dest(paths.js.dest));
 }
+
+function jqueryMigration() {
+    return src(paths.js["jquery-migration"])
+        .pipe(rename('jquery-migration.js'))
+        .pipe(dest(paths.js.dest))
+        .pipe(uglify({output: {comments: '/^!/'}}))
+        .pipe(rename('jquery-migration.min.js'))
+        .pipe(dest(paths.js.dest));
+}
+
+function bootstrapJS() {
+    return src(paths.js.bootstrap)
+        .pipe(rename('bootstrap.js'))
+        .pipe(dest(paths.js.dest))
+        .pipe(uglify({output: {comments: '/^!/'}}))
+        .pipe(rename('bootstrap.min.js'))
+        .pipe(dest(paths.js.dest));
+}
+
+function autocomplete() {
+    return src(paths.js.jqueryui)
+        .pipe(rename('autocomplete.js'))
+        .pipe(dest(paths.js.dest))
+        .pipe(uglify({output: {comments: '/^!/'}}))
+        .pipe(rename('autocomplete.min.js'))
+        .pipe(dest(paths.js.dest));
+}
+
+function otherJsFiles() {
+    return src(paths.js.src)
+        .pipe(dest(paths.js.dest))
+        .pipe(uglify({output: {comments: '/^!/'}}))
+        .pipe(rename({extname: '.min.js'}))
+        .pipe(dest(paths.js.dest));
+    ;
+}
+
+var js = gulp.parallel(jQuery, jqueryMigration, bootstrapJS, autocomplete, otherJsFiles);
 
 function watch() {
     gulp.watch(paths.html.src, testHTMLPage);
@@ -105,7 +189,7 @@ var build = gulp.series(clean, gulp.parallel( css, testHTMLPage, html, font, js)
 
 exports.watch = watch;
 exports.css = css;
-exports.html = testHTMLPage;
+exports.html = gulp.series([testHTMLPage, html]);
 exports.font = font;
 exports.js = js;
 exports.build = build;

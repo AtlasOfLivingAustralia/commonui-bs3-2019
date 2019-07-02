@@ -1,5 +1,4 @@
-/*!
- * jQuery JavaScript Library v3.4.1
+/* @license jQuery JavaScript Library v3.4.1
  * https://jquery.com/
  *
  * Includes Sizzle.js

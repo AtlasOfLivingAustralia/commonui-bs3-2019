@@ -135,10 +135,8 @@ $thumbnail-border:            #999 !default;
 
 
 // Font
-$icon-font-path: "../font/";
-$fa-font-path: "../font/";
+$icon-font-path: "../fonts/";
 @import url(https://fonts.googleapis.com/css?family=Lato%3A700%7CRoboto%3A300%2C400%2C400i%2C500%2C700%2C900&ver=5.2.1);
-@import "./ala-wordpress-2019/web/app/themes/understrap/sass/assets/font-awesome.scss";
 
 @import "./bootstrap-sass/assets/stylesheets/bootstrap";
 @import "./backport/stylesheets/bootstrap4/variables";
