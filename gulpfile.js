@@ -51,7 +51,7 @@ var paths = {
      * 'living-atlas'
      * @type {string}
      */
-    output = 'ala';
+    output = 'living-atlas';
 
 /**
  * Bootstrap output is dependent on value of @link{output} variable.
