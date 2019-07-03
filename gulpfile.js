@@ -57,7 +57,7 @@ var paths = {
      * 'living-atlas'
      * @type {string}
      */
-    output = 'living-atlas',
+    output = 'ala',
     /**
      * Address of the node server
      * Check readme for more details
