@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     replace = require('gulp-replace'),
     uglify = require('gulp-uglify'),
+    babel = require('gulp-babel'),
     fs = require('fs'),
     del = require('del');
 
@@ -17,8 +18,12 @@ var paths = {
         src: '**/*.scss',
         dest: 'build/css/'
     },
+    assets: {
+        src: ['assets/**', '!assets/vendor/**', '!assets/scss/**'],
+        dest: 'build/'
+    },
     dependencycss: {
-        src: [ 'assets/vendor/jquery-ui/autocomplete.css', 'assets/css/autocomplete-extra.css', 'assets/css/ala-styles.css', 'assets/css/*.css'],
+        src: ['assets/css/*.css'],
         dest: 'build/css/'
     },
     dependencyjs: {
@@ -51,7 +56,9 @@ var paths = {
      * 'living-atlas'
      * @type {string}
      */
-    output = 'living-atlas';
+    output = 'living-atlas',
+    localserver = 'http://localhost:8099/'
+;
 
 /**
  * Bootstrap output is dependent on value of @link{output} variable.
@@ -109,7 +116,7 @@ function testHTMLPage() {
         .pipe(replace('HEADER_HERE', header))
         .pipe(replace('FOOTER_HERE', footer))
         .pipe(replace(/::containerClass::/g, 'container-fluid'))
-        .pipe(replace(/::headerFooterServer::/g, '../'))
+        .pipe(replace(/::headerFooterServer::/g, localserver))
         .pipe(replace(/::loginStatus::/g, 'signedOut'))
         .pipe(replace(/::loginURL::/g, 'https://auth.ala.org.au/cas/login'))
         .pipe(rename('testPage.html'))
@@ -165,6 +172,7 @@ function autocomplete() {
 function otherJsFiles() {
     return src(paths.js.src)
         .pipe(dest(paths.js.dest))
+        .pipe(babel({presets: ['@babel/preset-env']}))
         .pipe(uglify({output: {comments: '/^!/'}}))
         .pipe(rename({extname: '.min.js'}))
         .pipe(dest(paths.js.dest));
@@ -172,6 +180,11 @@ function otherJsFiles() {
 }
 
 var js = gulp.parallel(jQuery, jqueryMigration, bootstrapJS, autocomplete, otherJsFiles);
+
+function assetCopy() {
+    return src(paths.assets.src)
+        .pipe(dest(paths.assets.dest));
+}
 
 function watch() {
     gulp.watch(paths.html.src, testHTMLPage);
@@ -182,10 +195,10 @@ function watch() {
 }
 
 function clean() {
-    return del([paths.styles.dest, paths.html.dest, paths.font.dest, paths.js.dest]);
+    return del([paths.assets.dest]);
 }
 
-var build = gulp.series(clean, gulp.parallel( css, testHTMLPage, html, font, js));
+var build = gulp.series(clean, gulp.parallel(assetCopy, css, testHTMLPage, html, font, js));
 
 exports.watch = watch;
 exports.css = css;

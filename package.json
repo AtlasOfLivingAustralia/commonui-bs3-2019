@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "del": "^4.1.0",
     "gulp": "^4.0.0",
-    "gulp-csso": "^3.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-csso": "2.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",

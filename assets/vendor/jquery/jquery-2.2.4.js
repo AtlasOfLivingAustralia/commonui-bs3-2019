@@ -1,4 +1,4 @@
-/* @preserve jQuery JavaScript Library v2.2.4
+/*! jQuery JavaScript Library v2.2.4
  * http://jquery.com/
  *
  * Includes Sizzle.js
