@@ -16,7 +16,8 @@ var paths = {
         'boostrap-ala': 'assets/scss/bootstrap-ala.scss',
         'font-awesome': 'assets/scss/font-awesome.scss',
         src: '**/*.scss',
-        dest: 'build/css/'
+        dest: 'build/css/',
+        jqueryui: 'assets/vendor/jquery-ui/autocomplete.css'
     },
     assets: {
         src: ['assets/**', '!assets/vendor/**', '!assets/scss/**'],
@@ -57,6 +58,11 @@ var paths = {
      * @type {string}
      */
     output = 'living-atlas',
+    /**
+     * Address of the node server
+     * Check readme for more details
+     * @type {string}
+     */
     localserver = 'http://localhost:8099/'
 ;
 
@@ -89,6 +95,15 @@ function bootstrapCSS() {
     }
 }
 
+function autocompleteCSS() {
+    return src(paths.styles.jqueryui)
+        .pipe(rename('autocomplete.css'))
+        .pipe(dest(paths.styles.dest))
+        .pipe(csso({restructure: false}))
+        .pipe(rename('autocomplete.min.css'))
+        .pipe(dest(paths.styles.dest));
+}
+
 function fontawesome() {
     return src(paths.styles["font-awesome"])
         .pipe(gulpSass({precision: 9}))
@@ -107,7 +122,7 @@ function otherCSSFiles() {
         .pipe(dest(paths.dependencycss.dest));
 }
 
-var css = gulp.parallel(bootstrapCSS, fontawesome, otherCSSFiles);
+var css = gulp.parallel(bootstrapCSS, fontawesome, autocompleteCSS, otherCSSFiles);
 
 function testHTMLPage() {
     var header = fs.readFileSync('banner.html');
@@ -160,7 +175,7 @@ function bootstrapJS() {
         .pipe(dest(paths.js.dest));
 }
 
-function autocomplete() {
+function autocompleteJS() {
     return src(paths.js.jqueryui)
         .pipe(rename('autocomplete.js'))
         .pipe(dest(paths.js.dest))
@@ -179,7 +194,7 @@ function otherJsFiles() {
     ;
 }
 
-var js = gulp.parallel(jQuery, jqueryMigration, bootstrapJS, autocomplete, otherJsFiles);
+var js = gulp.parallel(jQuery, jqueryMigration, bootstrapJS, autocompleteJS, otherJsFiles);
 
 function assetCopy() {
     return src(paths.assets.src)
@@ -198,7 +213,7 @@ function clean() {
     return del([paths.assets.dest]);
 }
 
-var build = gulp.series(clean, gulp.parallel(assetCopy, css, testHTMLPage, html, font, js));
+var build = gulp.series(clean, assetCopy, gulp.parallel(css, testHTMLPage, html, font, js));
 
 exports.watch = watch;
 exports.css = css;
