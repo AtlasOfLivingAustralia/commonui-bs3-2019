@@ -6989,11 +6989,14 @@ ul.menu {
 #wrapper-navbar form.search-form {
   margin-bottom: 0px; }
 
-#wrapper-navbar .signedIn .signUpBtn, #wrapper-navbar .signedIn .loginBtn {
+#wrapper-navbar > nav .signUpBtn, #wrapper-navbar > nav .loginBtn, #wrapper-navbar > nav .myProfileBtn, #wrapper-navbar > nav .logoutBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .account {
   display: none; }
 
-#wrapper-navbar .signedOut .myProfileBtn, #wrapper-navbar .signedOut .logoutBtn {
-  display: none; }
+#wrapper-navbar > nav .signedIn .myProfileBtn, #wrapper-navbar > nav .signedIn .logoutBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .account.signedIn {
+  display: inline-block; }
+
+#wrapper-navbar > nav .signedOut .signUpBtn, #wrapper-navbar > nav .signedOut .loginBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .account.signedOut {
+  display: inline-block; }
 
 footer .footer-top {
   background: #212121;
@@ -7173,8 +7176,11 @@ footer .footer-subscribe .gform_wrapper {
   footer .footer-subscribe .gform_wrapper form {
     display: flex; }
 
-footer .signedIn .signUpBtn, footer .signedIn .loginBtn {
+footer .signUpBtn, footer .loginBtn, footer .myProfileBtn, footer .logoutBtn {
   display: none; }
 
-footer .signedOut .myProfileBtn, footer .signedOut .logoutBtn {
-  display: none; }
+footer .signedIn .myProfileBtn, footer .signedIn .logoutBtn {
+  display: inline-block; }
+
+footer .signedOut .signUpBtn, footer .signedOut .loginBtn {
+  display: inline-block; }

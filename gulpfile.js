@@ -17,7 +17,11 @@ var paths = {
         'font-awesome': 'assets/scss/font-awesome.scss',
         src: '**/*.scss',
         dest: 'build/css/',
-        jqueryui: 'assets/vendor/jquery-ui/autocomplete.css'
+        jqueryui: 'assets/vendor/jquery-ui/autocomplete.css',
+    },
+    images: {
+        jqueryui: 'assets/vendor/jquery-ui/images/**',
+        jqueryuidest:'build/css/images/'
     },
     assets: {
         src: ['assets/**', '!assets/vendor/**', '!assets/scss/**'],
@@ -122,7 +126,12 @@ function otherCSSFiles() {
         .pipe(dest(paths.dependencycss.dest));
 }
 
-var css = gulp.parallel(bootstrapCSS, fontawesome, autocompleteCSS, otherCSSFiles);
+function autocompleteImages() {
+    return src(paths.images.jqueryui)
+        .pipe(dest(paths.images.jqueryuidest));
+}
+
+var css = gulp.parallel(bootstrapCSS, fontawesome, autocompleteImages, autocompleteCSS, otherCSSFiles);
 
 function testHTMLPage() {
     var header = fs.readFileSync('banner.html');

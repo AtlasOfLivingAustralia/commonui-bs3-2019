@@ -1,11 +1,11 @@
-/* @preserve
+/*!
     Simple JavaScript Templating
     John Resig - https://johnresig.com/ - MIT Licensed
 */
 (function(){
     var cache = {};
 
-    this.tmpl = function tmpl(str, data){
+    Window.tmpl = function tmpl(str, data){
         // Figure out if we're getting a template, or if we need to
         // load the template - and be sure to cache the result.
         var fn = !/\W/.test(str) ?
@@ -57,9 +57,10 @@ jQuery(function () {
     var autoCompleteSelector = BC_CONF.autoCompleteSelector || "#autocompleteHeader",
         appendToSelector = BC_CONF.appendToSelector || "#autocompleteSearchALA",
         bieURL = BC_CONF.autocompleteURL || "https://bie-ws.ala.org.au/ws/search/auto.json",
-        templateId =  BC_CONF.templateId || "autoCompleteTemplate";
+        templateId =  BC_CONF.templateId || "autoCompleteTemplate",
+        autocomplete = $.ui.autocomplete || $.autocomplete;
 
-    var instance = $.ui.autocomplete({
+    var instance = autocomplete({
         appendTo: appendToSelector,
         minLength: 0,
         source: function (request, response) {
