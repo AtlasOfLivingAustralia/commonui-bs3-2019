@@ -6997,16 +6997,16 @@ ul.menu {
 #wrapper-navbar > nav .account-mobile {
   display: flex; }
 
-#wrapper-navbar > nav .signUpBtn, #wrapper-navbar > nav .loginBtn, #wrapper-navbar > nav .myProfileBtn, #wrapper-navbar > nav .logoutBtn, .outer-nav-wrapper .top-bar #wrapper-navbar > nav.account {
+#wrapper-navbar > nav .signUpBtn, #wrapper-navbar > nav .loginBtn, #wrapper-navbar > nav .myProfileBtn, #wrapper-navbar > nav .logoutBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .account {
   display: none; }
 
-#wrapper-navbar > nav .signedIn .myProfileBtn, #wrapper-navbar > nav .signedIn .logoutBtn, .outer-nav-wrapper .top-bar #wrapper-navbar > nav .signedIn.account {
+#wrapper-navbar > nav .signedIn .myProfileBtn, #wrapper-navbar > nav .signedIn .logoutBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .signedIn.account {
   display: inline-block; }
 
 #wrapper-navbar > nav .signedIn .account-mobile.myProfileBtn, #wrapper-navbar > nav .signedIn .account-mobile.logoutBtn {
   display: flex; }
 
-#wrapper-navbar > nav .signedOut .signUpBtn, #wrapper-navbar > nav .signedOut .loginBtn, .outer-nav-wrapper .top-bar #wrapper-navbar > nav .signedOut.account {
+#wrapper-navbar > nav .signedOut .signUpBtn, #wrapper-navbar > nav .signedOut .loginBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .signedOut.account {
   display: inline-block; }
 
 #wrapper-navbar > nav .signedOut .account-mobile.signUpBtn, #wrapper-navbar > nav .signedOut .account-mobile.loginBtn {
