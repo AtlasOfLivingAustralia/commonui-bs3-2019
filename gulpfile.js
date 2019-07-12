@@ -40,12 +40,11 @@ var paths = {
         dest: 'build/'
     },
     font: {
-        src: ['bootstrap-sass/assets/fonts/bootstrap/*.*', 'ala-wordpress-2019/web/app/themes/understrap/fonts/*'],
+        src: ['bootstrap-sass/assets/fonts/bootstrap/*.*', 'ala-wordpress-2019/web/app/themes/understrap/fonts/*', 'ala-wordpress-2019/web/app/themes/pvtl/fonts/*'],
         dest: 'build/fonts/'
     },
     js: {
         src: [
-
             'assets/js/application.js', 'assets/js/*.js'
         ],
         dest: 'build/js/',

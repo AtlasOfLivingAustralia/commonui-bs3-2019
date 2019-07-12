@@ -6746,6 +6746,8 @@ ul.menu {
       border-radius: 1px;
       background-color: white;
       margin-bottom: 4px; }
+    #wrapper-navbar .navbar .navbar-toggle .horizontal-line:first-child {
+      margin-top: 4px; }
     #wrapper-navbar .navbar .navbar-toggle:hover .horizontal-line, #wrapper-navbar .navbar .navbar-toggle:focus .horizontal-line {
       background-color: #f26649;
       border-color: #f26649; }
@@ -6857,14 +6859,17 @@ ul.menu {
   #wrapper-navbar .search-trigger:hover svg path, #wrapper-navbar .search-trigger:focus svg path, #wrapper-navbar .account-mobile:hover svg path, #wrapper-navbar .account-mobile:focus svg path, #wrapper-navbar .search-submit:hover svg path, #wrapper-navbar .search-submit:focus svg path {
     fill: #f26649; }
 
-#wrapper-navbar .mobile-logout-btn {
-  width: 25px;
-  height: 35px;
-  font-size: 26px;
+#wrapper-navbar .account-mobile {
   display: flex;
   align-items: start; }
-  #wrapper-navbar .mobile-logout-btn:hover, #wrapper-navbar .mobile-logout-btn:focus {
-    color: #f26649; }
+  #wrapper-navbar .account-mobile:hover, #wrapper-navbar .account-mobile:focus {
+    text-decoration: none; }
+  #wrapper-navbar .account-mobile .fas {
+    font-size: 1.53125rem;
+    font-weight: 200; }
+
+#wrapper-navbar .mobile-logout-btn:hover, #wrapper-navbar .mobile-logout-btn:focus, #wrapper-navbar .mobile-login-btn:hover, #wrapper-navbar .mobile-login-btn:focus {
+  color: #f26649; }
 
 #wrapper-navbar .collapse-trigger-button:not(.collapsed) {
   font-size: 1rem; }
@@ -6989,14 +6994,23 @@ ul.menu {
 #wrapper-navbar form.search-form {
   margin-bottom: 0px; }
 
-#wrapper-navbar > nav .signUpBtn, #wrapper-navbar > nav .loginBtn, #wrapper-navbar > nav .myProfileBtn, #wrapper-navbar > nav .logoutBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .account {
+#wrapper-navbar > nav .account-mobile {
+  display: flex; }
+
+#wrapper-navbar > nav .signUpBtn, #wrapper-navbar > nav .loginBtn, #wrapper-navbar > nav .myProfileBtn, #wrapper-navbar > nav .logoutBtn, .outer-nav-wrapper .top-bar #wrapper-navbar > nav.account {
   display: none; }
 
-#wrapper-navbar > nav .signedIn .myProfileBtn, #wrapper-navbar > nav .signedIn .logoutBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .account.signedIn {
+#wrapper-navbar > nav .signedIn .myProfileBtn, #wrapper-navbar > nav .signedIn .logoutBtn, .outer-nav-wrapper .top-bar #wrapper-navbar > nav .signedIn.account {
   display: inline-block; }
 
-#wrapper-navbar > nav .signedOut .signUpBtn, #wrapper-navbar > nav .signedOut .loginBtn, #wrapper-navbar > nav .outer-nav-wrapper .top-bar .account.signedOut {
+#wrapper-navbar > nav .signedIn .account-mobile.myProfileBtn, #wrapper-navbar > nav .signedIn .account-mobile.logoutBtn {
+  display: flex; }
+
+#wrapper-navbar > nav .signedOut .signUpBtn, #wrapper-navbar > nav .signedOut .loginBtn, .outer-nav-wrapper .top-bar #wrapper-navbar > nav .signedOut.account {
   display: inline-block; }
+
+#wrapper-navbar > nav .signedOut .account-mobile.signUpBtn, #wrapper-navbar > nav .signedOut .account-mobile.loginBtn {
+  display: flex; }
 
 footer .footer-top {
   background: #212121;
