@@ -7199,5 +7199,5 @@ footer .signedIn .myProfileBtn, footer .signedIn .logoutBtn {
 footer .signedOut .signUpBtn, footer .signedOut .loginBtn {
   display: inline-block; }
 
-a.underline {
+footer a.underline {
   text-decoration: underline; }
