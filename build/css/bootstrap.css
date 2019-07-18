@@ -7198,3 +7198,6 @@ footer .signedIn .myProfileBtn, footer .signedIn .logoutBtn {
 
 footer .signedOut .signUpBtn, footer .signedOut .loginBtn {
   display: inline-block; }
+
+a.underline {
+  text-decoration: underline; }

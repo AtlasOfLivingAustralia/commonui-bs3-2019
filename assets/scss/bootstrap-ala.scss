@@ -159,3 +159,6 @@ $icon-font-path: "../fonts/";
 footer {
   @import "./ala-wordpress-2019/web/app/themes/pvtl/sass/theme/partials/footer";
 }
+
+// import extra styles here
+@import "./assets/scss/extras/basic";
