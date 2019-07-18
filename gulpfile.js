@@ -142,6 +142,8 @@ function testHTMLPage() {
         .pipe(replace(/::headerFooterServer::/g, localserver))
         .pipe(replace(/::loginStatus::/g, 'signedOut'))
         .pipe(replace(/::loginURL::/g, 'https://auth.ala.org.au/cas/login'))
+        .pipe(replace(/::searchServer::/g, 'https://bie.ala.org.au'))
+        .pipe(replace(/::searchPath::/g, '/search'))
         .pipe(rename('testPage.html'))
         .pipe(dest(paths.html.dest));
 };
