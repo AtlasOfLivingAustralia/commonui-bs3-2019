@@ -48,7 +48,7 @@ Example usage - `http://localhost:8099/css/jquery-ui.css`
 ### Test page
 The project has a test page to visualise changes. Use the following link.
 
-`http://localhost:8099/html/testPage.html`
+`http://localhost:8099/testPage.html`
 
 ### Adding a dependency
 Add a npm library using `yarn`. Yarn is used to preserve the version of the dependency across installations of this repo.
