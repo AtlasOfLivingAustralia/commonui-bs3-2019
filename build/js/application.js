@@ -58,7 +58,7 @@ jQuery(function () {
         appendToSelector = BC_CONF.appendToSelector || "#autocompleteSearchALA",
         bieURL = BC_CONF.autocompleteURL || "https://bie-ws.ala.org.au/ws/search/auto.json",
         templateId =  BC_CONF.templateId || "autoCompleteTemplate",
-        autocomplete = $.ui.autocomplete;
+        autocomplete = $.ui && $.ui.autocomplete;
 
     if( typeof autocomplete === "function") {
         var instance = autocomplete({
