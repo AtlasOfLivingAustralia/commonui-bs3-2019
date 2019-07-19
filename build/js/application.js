@@ -58,49 +58,51 @@ jQuery(function () {
         appendToSelector = BC_CONF.appendToSelector || "#autocompleteSearchALA",
         bieURL = BC_CONF.autocompleteURL || "https://bie-ws.ala.org.au/ws/search/auto.json",
         templateId =  BC_CONF.templateId || "autoCompleteTemplate",
-        autocomplete = $.ui.autocomplete || $.autocomplete;
+        autocomplete = $.ui.autocomplete || $.fn.autocomplete;
 
-    var instance = autocomplete({
-        appendTo: appendToSelector,
-        minLength: 0,
-        source: function (request, response) {
-            $.ajax( {
-                url: bieURL,
-                dataType: "json",
-                data: {
-                    q: request.term
-                },
-                success: function( data ) {
-                    response( data.autoCompleteList );
+    if( typeof autocomplete === "function") {
+        var instance = autocomplete({
+            appendTo: appendToSelector,
+            minLength: 0,
+            source: function (request, response) {
+                $.ajax( {
+                    url: bieURL,
+                    dataType: "json",
+                    data: {
+                        q: request.term
+                    },
+                    success: function( data ) {
+                        response( data.autoCompleteList );
+                    }
+                } );
+            },
+            focus: function( event, ui ) {
+                var getName = $(this).data('ui-autocomplete').options.getMatchingName;
+                $( autoCompleteSelector ).val( getName(ui.item) );
+                return false;
+            },
+            select: function( event, ui ) {
+                var getName = $(this).data('ui-autocomplete').options.getMatchingName;
+                $( autoCompleteSelector ).val( getName(ui.item) );
+                return false;
+            },
+            getMatchingName: function (item) {
+                if (item.commonNameMatches && item.commonNameMatches.length) {
+                    return item.commonName;
+                } else {
+                    return item.name;
                 }
-            } );
-        },
-        focus: function( event, ui ) {
-            var getName = $(this).data('ui-autocomplete').options.getMatchingName;
-            $( autoCompleteSelector ).val( getName(ui.item) );
-            return false;
-        },
-        select: function( event, ui ) {
-            var getName = $(this).data('ui-autocomplete').options.getMatchingName;
-            $( autoCompleteSelector ).val( getName(ui.item) );
-            return false;
-        },
-        getMatchingName: function (item) {
-            if (item.commonNameMatches && item.commonNameMatches.length) {
-                return item.commonName;
-            } else {
-                return item.name;
             }
-        }
-    }, $( autoCompleteSelector ));
-    instance._renderItem = function( ul, item ) {
-        return $( tmpl(templateId)(item) )
-            .appendTo( ul );
-    };
-    instance._resizeMenu = function () {
-        var ul = this.menu.element;
-        ul.outerWidth(this.element.outerWidth());
-    };
+        }, $( autoCompleteSelector ));
+        instance._renderItem = function( ul, item ) {
+            return $( tmpl(templateId)(item) )
+                .appendTo( ul );
+        };
+        instance._resizeMenu = function () {
+            var ul = this.menu.element;
+            ul.outerWidth(this.element.outerWidth());
+        };
+    }
 });
 
 function focusOnClickSearchButton () {
