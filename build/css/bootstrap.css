@@ -2873,23 +2873,23 @@ fieldset[disabled] a.gform_button {
 
 .btn-primary, .gform_button {
   color: #fff;
-  background-color: #f26649;
-  border-color: #f26649; }
+  background-color: #c44d34;
+  border-color: #c44d34; }
   .btn-primary:focus, .gform_button:focus, .btn-primary.focus, .focus.gform_button {
     color: #fff;
-    background-color: #ef3e19;
-    border-color: #af280d; }
+    background-color: #9c3d29;
+    border-color: #5f2519; }
   .btn-primary:hover, .gform_button:hover {
     color: #fff;
-    background-color: #ef3e19;
-    border-color: #ed3711; }
+    background-color: #9c3d29;
+    border-color: #943a27; }
   .btn-primary:active, .gform_button:active, .btn-primary.active, .active.gform_button,
   .open > .btn-primary.dropdown-toggle,
   .open > .dropdown-toggle.gform_button {
     color: #fff;
-    background-color: #ef3e19;
+    background-color: #9c3d29;
     background-image: none;
-    border-color: #ed3711; }
+    border-color: #943a27; }
     .btn-primary:active:hover, .gform_button:active:hover, .btn-primary:active:focus, .gform_button:active:focus, .btn-primary:active.focus, .gform_button:active.focus, .btn-primary.active:hover, .active.gform_button:hover, .btn-primary.active:focus, .active.gform_button:focus, .btn-primary.active.focus, .active.focus.gform_button,
     .open > .btn-primary.dropdown-toggle:hover,
     .open > .dropdown-toggle.gform_button:hover,
@@ -2898,8 +2898,8 @@ fieldset[disabled] a.gform_button {
     .open > .btn-primary.dropdown-toggle.focus,
     .open > .dropdown-toggle.focus.gform_button {
       color: #fff;
-      background-color: #d5310f;
-      border-color: #af280d; }
+      background-color: #7f3222;
+      border-color: #5f2519; }
   .btn-primary.disabled:hover, .disabled.gform_button:hover, .btn-primary.disabled:focus, .disabled.gform_button:focus, .btn-primary.disabled.focus, .disabled.focus.gform_button, .btn-primary[disabled]:hover, .gform_button[disabled]:hover, .btn-primary[disabled]:focus, .gform_button[disabled]:focus, .btn-primary[disabled].focus, .gform_button[disabled].focus,
   fieldset[disabled] .btn-primary:hover,
   fieldset[disabled] .gform_button:hover,
@@ -2907,10 +2907,10 @@ fieldset[disabled] a.gform_button {
   fieldset[disabled] .gform_button:focus,
   fieldset[disabled] .btn-primary.focus,
   fieldset[disabled] .focus.gform_button {
-    background-color: #f26649;
-    border-color: #f26649; }
+    background-color: #c44d34;
+    border-color: #c44d34; }
   .btn-primary .badge, .gform_button .badge {
-    color: #f26649;
+    color: #c44d34;
     background-color: #fff; }
 
 .btn-success {
