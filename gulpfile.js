@@ -141,7 +141,7 @@ function testHTMLPage() {
         .pipe(replace(/::containerClass::/g, 'container-fluid'))
         .pipe(replace(/::headerFooterServer::/g, localserver))
         .pipe(replace(/::loginStatus::/g, 'signedOut'))
-        .pipe(replace(/::loginURL::/g, 'https://auth.ala.org.au/cas/login'))
+        .pipe(replace(/::loginURL::/g, 'https://aws-auth-dev.ala.org.au/cas/login'))
         .pipe(replace(/::searchServer::/g, 'https://bie.ala.org.au'))
         .pipe(replace(/::searchPath::/g, '/search'))
         .pipe(rename('testPage.html'))
