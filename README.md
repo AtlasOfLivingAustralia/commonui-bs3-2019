@@ -32,6 +32,11 @@ Install dependencies using yarn.
 
 `yarn install`
 
+### Create buildvars file
+Copy the buildvars-example.js file to a new file named buildvars.js (which is git-ignored).
+Edit the variables as needed to define things like the login/logout URLs etc for different dev/build/prod environments.
+You can also store copies of different buildvars files in a directory named 'buildvars-ignored'
+
 ### Building project
 Build project to generate CSS from SCSS, compress and concatenate files. The tool used to build project is Gulp.
 
