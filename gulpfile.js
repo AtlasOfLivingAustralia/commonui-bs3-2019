@@ -1,3 +1,4 @@
+
 var gulp = require('gulp'),
     gulpSass = require('gulp-sass')(require('sass')),
     csso = require('gulp-csso'),
@@ -6,7 +7,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     babel = require('gulp-babel'),
     fs = require('fs'),
-    del = require('del');
+    del = require('del'),
+    buildvars = require('./buildvars.js');
 
 const {src, dest} = gulp;
 
@@ -142,14 +144,23 @@ function testHTMLPage() {
         .pipe(replace(/::headerFooterServer::/g, localserver))
         .pipe(replace(/::loginStatus::/g, 'signedOut'))
         .pipe(replace(/::loginURL::/g, 'https://auth.ala.org.au/cas/login'))
+        .pipe(replace(/::logoutURL::/g, 'https://auth.ala.org.au/cas/logout'))
         .pipe(replace(/::searchServer::/g, 'https://bie.ala.org.au'))
         .pipe(replace(/::searchPath::/g, '/search'))
+        .pipe(replace(/==homeDomain==/g, buildvars.homeDomain))
+        .pipe(replace(/==signUpURL==/g, buildvars.signUpURL))
+        .pipe(replace(/==profileURL==/g, buildvars.profileURL))
+        .pipe(replace(/==fathomID==/g, buildvars.fathomID))
         .pipe(rename('testPage.html'))
         .pipe(dest(paths.html.dest));
 };
 
 function html() {
     return src(paths.html.src)
+        .pipe(replace(/==homeDomain==/g, buildvars.homeDomain))
+        .pipe(replace(/==signUpURL==/g, buildvars.signUpURL))
+        .pipe(replace(/==profileURL==/g, buildvars.profileURL))
+        .pipe(replace(/==fathomID==/g, buildvars.fathomID))
         .pipe(dest(paths.html.dest));
 };
 
