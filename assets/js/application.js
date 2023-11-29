@@ -111,3 +111,35 @@ function focusOnClickSearchButton () {
         document.getElementById('autocompleteHeader').focus();
     }, 0);
 }
+
+jQuery( document ).ready(function() {
+    // getting the usage levels of tabs on BIE taxon pages
+    jQuery( ".taxon-tabs .nav-tabs a" ).click(function() {
+        let bieTab = jQuery(this).attr('href');
+        switch(bieTab) {
+            case 'overview':
+                fathom.trackEvent('Species page - Overview tab');
+                break;
+            case 'gallery':
+                fathom.trackEvent('Species page - Gallery tab');
+                break;
+            case 'names':
+                fathom.trackEvent('Species page - Names tab');
+                break;
+            case 'classification':
+                fathom.trackEvent('Species page - Classification tab');
+                break;
+            case 'records':
+                fathom.trackEvent('Species page - Charts tab');
+                break;
+            case 'literature':
+                fathom.trackEvent('Species page - Literature tab');
+                break;
+            case 'data-partners':
+                fathom.trackEvent('Species page - Data partners tab');
+                break;
+            default:
+                break;
+        }
+    })
+});
