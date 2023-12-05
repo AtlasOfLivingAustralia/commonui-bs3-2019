@@ -117,31 +117,31 @@ jQuery( document ).ready(function() {
     jQuery( ".taxon-tabs .nav-tabs a" ).click(function() {
         let bieTab = jQuery(this).attr('href');
         switch(bieTab) {
-            case 'overview':
+            case '#overview':
                 console.log('Species page - Overview tab');
                 fathom.trackEvent('Species page - Overview tab');
                 break;
-            case 'gallery':
+            case '#gallery':
                 console.log('Species page - Gallery tab');
                 fathom.trackEvent('Species page - Gallery tab');
                 break;
-            case 'names':
+            case '#names':
                 console.log('Species page - Names tab');
                 fathom.trackEvent('Species page - Names tab');
                 break;
-            case 'classification':
+            case '#classification':
                 console.log('Species page - Classification tab');
                 fathom.trackEvent('Species page - Classification tab');
                 break;
-            case 'records':
+            case '#records':
                 console.log('Species page - Charts tab');
                 fathom.trackEvent('Species page - Charts tab');
                 break;
-            case 'literature':
+            case '#literature':
                 console.log('Species page - Literature tab');
                 fathom.trackEvent('Species page - Literature tab');
                 break;
-            case 'data-partners':
+            case '#data-partners':
                 console.log('Species page - Data partners tab');
                 fathom.trackEvent('Species page - Data partners tab');
                 break;
